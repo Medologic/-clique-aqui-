@@ -1,22 +1,155 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Acesso ao Link</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso ao Aplicativo</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter, Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at center,
+    rgba(232,166,58,0.08) 0%,
+    rgba(13,8,5,1) 60%);
+    
+    background-color:#0D0805;
+}
+
+.card{
+    width:90%;
+    max-width:420px;
+
+    background:rgba(26,18,12,0.92);
+
+    border:1px solid rgba(232,166,58,0.15);
+
+    border-radius:28px;
+
+    padding:48px 32px;
+
+    text-align:center;
+
+    box-shadow:
+    0 0 40px rgba(232,166,58,0.05),
+    0 20px 60px rgba(0,0,0,0.45);
+
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    width:64px;
+    height:64px;
+    margin:0 auto 24px;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+    135deg,
+    #F3C56B,
+    #D88A00);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    box-shadow:
+    0 0 25px rgba(232,166,58,.25);
+}
+
+h1{
+    color:#F5F0E8;
+    font-size:36px;
+    margin-bottom:12px;
+    font-family:Georgia, serif;
+}
+
+p{
+    color:#B8A999;
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:34px;
+}
+
+.btn{
+    display:block;
+
+    width:100%;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+    90deg,
+    #EBC677,
+    #D88A00);
+
+    color:#18120B;
+
+    font-weight:700;
+    font-size:18px;
+
+    transition:.25s ease;
+
+    box-shadow:
+    0 10px 30px rgba(216,138,0,.25);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 15px 35px rgba(216,138,0,.35);
+}
+
+.secure{
+    margin-top:18px;
+    color:#8B7A67;
+    font-size:13px;
+}
+
+</style>
 </head>
-<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 100px;">
 
-  <h2>Acesse o conteúdo abaixo</h2>
+<body>
 
-  <a href="https://body-reboot-pro.lovable.app/auth" 
-     target="_blank"
-     style="display: inline-block; padding: 15px 25px; background: #4CAF50; color: white; text-decoration: none; border-radius: 8px; font-size: 18px;">
-     Abrir Página
-  </a>
+<div class="card">
 
-  <p style="margin-top: 20px; color: gray;">
-    Clique no botão para acessar o link
-  </p>
+    <div class="logo">🔥</div>
+
+    <h1>Acesso Liberado</h1>
+
+    <p>
+        Clique abaixo para acessar seu protocolo e continuar sua jornada.
+    </p>
+
+    <a class="btn"
+       href="https://body-reboot-pro.lovable.app/auth"
+       target="_blank">
+        Entrar no Aplicativo
+    </a>
+
+    <div class="secure">
+        Redirecionamento seguro
+    </div>
+
+</div>
 
 </body>
 </html>
