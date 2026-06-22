@@ -1,157 +1,175 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acesso ao Aplicativo</title>
+<title>Acesso Liberado</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:Inter, Arial, sans-serif;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(232,166,58,0.08) 0%,
-    rgba(13,8,5,1) 60%);
-
-    background-color:#0D0805;
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Georgia", serif;
+  background: radial-gradient(circle at top, #f7f0e6, #e6d7c3);
 }
 
-.card{
-    width:90%;
-    max-width:420px;
-
-    background:rgba(26,18,12,0.92);
-
-    border:1px solid rgba(232,166,58,0.15);
-
-    border-radius:28px;
-
-    padding:48px 32px;
-
-    text-align:center;
-
-    box-shadow:
-    0 0 40px rgba(232,166,58,0.05),
-    0 20px 60px rgba(0,0,0,0.45);
-
-    backdrop-filter:blur(12px);
+/* ===== partículas suaves ===== */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(210, 170, 110, 0.35);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out;
 }
 
-.logo{
-    width:64px;
-    height:64px;
-
-    margin:0 auto 24px;
-
-    border-radius:20px;
-
-    background:linear-gradient(
-    135deg,
-    #F3C56B,
-    #D88A00);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:30px;
-
-    box-shadow:
-    0 0 25px rgba(232,166,58,.25);
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-120vh) translateX(40px); opacity: 0; }
 }
 
-h1{
-    color:#F5F0E8;
-    font-size:36px;
-    margin-bottom:12px;
-    font-family:Georgia, serif;
+/* ===== card ===== */
+.card {
+  width: 380px;
+  padding: 38px 32px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(180, 150, 110, 0.25);
+  box-shadow: 0 25px 70px rgba(70, 40, 10, 0.18);
+  text-align: center;
+
+  animation: fadeIn 1.2s ease;
 }
 
-p{
-    color:#B8A999;
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:34px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
 
-.btn{
-    display:block;
-
-    width:100%;
-
-    text-decoration:none;
-
-    padding:18px;
-
-    border-radius:16px;
-
-    background:linear-gradient(
-    90deg,
-    #EBC677,
-    #D88A00);
-
-    color:#18120B;
-
-    font-weight:700;
-    font-size:18px;
-
-    transition:all .25s ease;
-
-    box-shadow:
-    0 10px 30px rgba(216,138,0,.25);
+/* ícone */
+.icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f6e0b5, #e3bf7a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 10px 25px rgba(180, 140, 80, 0.25);
 }
 
-.btn:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-    0 15px 35px rgba(216,138,0,.35);
+/* textos */
+h1 {
+  font-size: 30px;
+  color: #3b2a1a;
+  margin-bottom: 10px;
 }
 
-.secure{
-    margin-top:18px;
-    color:#8B7A67;
-    font-size:13px;
+p {
+  font-size: 14px;
+  color: #6c5a45;
+  margin-bottom: 25px;
+  line-height: 1.4;
 }
 
+/* botão com brilho animado */
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #3b2a1a;
+  background: linear-gradient(135deg, #f6e3bf, #e9c98a);
+  box-shadow: 0 12px 30px rgba(180, 140, 80, 0.25);
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+/* brilho passando */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shine 3.5s infinite;
+}
+
+@keyframes shine {
+  0% { left: -80%; }
+  100% { left: 180%; }
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(180, 140, 80, 0.35);
+}
+
+.footer {
+  margin-top: 14px;
+  font-size: 11px;
+  color: #8a7a66;
+}
 </style>
 </head>
 
 <body>
 
+<!-- partículas -->
+<script>
+for (let i = 0; i < 18; i++) {
+  let p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.top = Math.random() * 100 + "vh";
+  p.style.animationDuration = (6 + Math.random() * 6) + "s";
+  document.body.appendChild(p);
+}
+</script>
+
 <div class="card">
+  <div class="icon">🔥</div>
+  <h1>Acesso Liberado</h1>
+  <p>
+    Clique abaixo para acessar seu protocolo e continuar sua jornada de transformação.
+  </p>
 
-    <div class="logo">🔥</div>
+  <a class="btn" href="https://medologic.github.io/AppMetabolic14d/" target="_blank">
+    Entrar no Aplicativo
+  </a>
 
-    <h1>Acesso Liberado</h1>
-
-    <p>
-        Seu aplicativo está pronto para uso.
-        Clique abaixo para acessar sua área exclusiva.
-    </p>
-
-    <a class="btn"
-       href="https://daily-reset-buddy.lovable.app"
-       target="_blank">
-        Entrar no Aplicativo
-    </a>
-
-    <div class="secure">
-        Redirecionamento seguro
-    </div>
-
+  <div class="footer">Redirecionamento seguro e protegido</div>
 </div>
 
 </body>
